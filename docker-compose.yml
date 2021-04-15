@@ -12,3 +12,5 @@ services:
       - ./periodic-cleanup/mysql/backup:/opt/mysql/backup
     command: crond -f -d 8
     restart: always
+    depends_on:
+      - rocketdb
