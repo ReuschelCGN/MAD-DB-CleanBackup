@@ -1,5 +1,5 @@
+version: '2.4'
 services:
-
   periodic-cleanup:
     container_name: rocketdb-cleanup
     build: ./periodic-cleanup
@@ -12,5 +12,3 @@ services:
       - ./periodic-cleanup/mysql/backup:/opt/mysql/backup
     command: crond -f -d 8
     restart: always
-    depends_on:
-      - rocketdb
