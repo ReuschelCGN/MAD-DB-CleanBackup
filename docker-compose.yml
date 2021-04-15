@@ -1,0 +1,16 @@
+services:
+
+  periodic-cleanup:
+    container_name: rocketdb-cleanup
+    build: ./periodic-cleanup
+    environment:
+      MYSQL_CONTAINER_NAME: ROCKETDB CONATAINER NAME
+      MYSQL_DATABASE: MAD DB NAME
+      MYSQL_ROOT_PASSWORD: MYSQL ROOT PASSWORD
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./periodic-cleanup/mysql/backup:/opt/mysql/backup
+    command: crond -f -d 8
+    restart: always
+    depends_on:
+      - rocketdb
