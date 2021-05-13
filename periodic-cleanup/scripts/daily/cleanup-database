@@ -21,7 +21,7 @@ FILE=${BACKUP_FOLDER}/backup-${NOW}.sql.gz
 $MYSQLDUMP -h $MHOST -u $MUSER -p${MPASS} --databases $MDB | $GZIP -9 > $FILE; && 
 
 ### MySQL DB Cleanup Table Pokemon (alles laenger als 7 Tage) ###
-$MYSQL -h $MHOST -u $MUSER -p${MPASS} -D $MDB -e "DELETE FROM pokemon WHERE DATEDIFF(NOW(),last_modified) >= 7;" &&
+$MYSQL -h $MHOST -u $MUSER -p${MPASS} -D $MDB -e "DELETE FROM pokemon WHERE DATEDIFF(NOW(), last_modified) >= 7;" &&
 
 ### Delete Stops older 7 than days ###
 $MYSQL -h $MHOST -u $MUSER -p${MPASS} -D $MDB -e "DELETE FROM pokestop WHERE last_updated < date_sub(now(), interval 7 day);" &&
