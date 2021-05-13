@@ -10,6 +10,7 @@ It will backup and pack (GZIP) the complete DB in /periodic-cleanup/mysql/backup
 - delete Stops older 7 than days
 - delete Gyms older 7 than days
 - delete Stops that became a Gym
+
 every day.
 
 Timediff for cleanup can be customized in \periodic-cleanup\scripts\daily\cleanup-database file.
